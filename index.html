@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101c2a">
+  <title>¡Dino Gol! — Fútbol prehistórico</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Dino Gol, inicio"><span class="brand-icon">🦖</span><span>DINO<span class="brand-accent">GOL!</span></span></a>
+      <div class="league-tag"><span class="live-dot"></span> COPA JURÁSICA <span class="tag-divider">/</span> FINAL</div>
+      <button class="sound-button" id="soundButton" aria-label="Activar o silenciar sonido" title="Sonido">♫ <span>SONIDO</span></button>
+    </header>
+
+    <section class="match-wrap" aria-label="Partido de fútbol de dinosaurios">
+      <div class="match-heading">
+        <div><p class="eyebrow">ESTADIO VOLCÁN · TEMPORADA 01</p><h1>¡Un partido <span>prehistórico!</span></h1></div>
+        <div class="match-badge"><span>🏆</span> PARTIDO RÁPIDO</div>
+      </div>
+      <div class="scoreboard" aria-live="polite">
+        <div class="team-label team-home"><span class="team-emoji">🦕</span><span class="team-name">TRICERATOPS<br><small>VERDES</small></span></div>
+        <div class="score-center"><span class="score" id="homeScore">0</span><span class="score-separator">:</span><span class="score" id="awayScore">0</span><div class="match-clock" id="clock">01:30</div></div>
+        <div class="team-label team-away"><span class="team-name">RAPTORES<br><small>ROJOS</small></span><span class="team-emoji">🦖</span></div>
+      </div>
+      <div class="arena-frame">
+        <canvas id="game" width="1000" height="600" aria-label="Cancha de fútbol: juega contra un dinosaurio rival"></canvas>
+        <div class="goal-flash" id="goalFlash" aria-live="assertive"><span class="goal-kicker">¡GOOOL!</span><span class="goal-detail" id="goalDetail">¡Qué disparo!</span></div>
+        <div class="pause-indicator" id="pauseIndicator">Ⅱ <span>PAUSA</span></div>
+        <div class="mobile-controls" aria-label="Controles táctiles">
+          <div class="dpad" aria-label="Mover dinosaurio">
+            <button data-dir="up" aria-label="Arriba">▲</button>
+            <button data-dir="left" aria-label="Izquierda">◀</button>
+            <button data-dir="down" aria-label="Abajo">▼</button>
+            <button data-dir="right" aria-label="Derecha">▶</button>
+          </div>
+          <button class="kick-button" id="kickButton" aria-label="Patear">¡PATEA!<span>⚡</span></button>
+        </div>
+      </div>
+      <div class="under-arena">
+        <div class="status-pill"><span class="status-dot"></span><span id="statusText">¡El silbato está a punto de sonar!</span></div>
+        <div class="controls-legend"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> <span>mover</span><kbd class="space-key">ESPACIO</kbd><span>patear</span><kbd class="pause-key">P</kbd><span>pausa</span></div>
+      </div>
+    </section>
+
+    <section class="bottom-row">
+      <article class="tip-card"><span class="tip-icon">💡</span><div><strong>TRUCO DEL ENTRENADOR</strong><p>Acércate al balón y ¡patea para lanzar un misil!</p></div></article>
+      <div class="bottom-note"><span>🌋</span> JUGADO CON ESCAMAS Y CORAZÓN</div>
+    </section>
+
+    <div class="overlay" id="overlay">
+      <div class="start-card" id="startCard">
+        <div class="card-sparkle sparkle-a">✦</div><div class="card-sparkle sparkle-b">✦</div>
+        <div class="card-mascots"><span>🦕</span><span class="versus">VS</span><span>🦖</span></div>
+        <p class="card-kicker">LA CANCHA TE ESPERA</p>
+        <h2>¿Listo para<br><em>hacer historia?</em></h2>
+        <p class="card-copy">Controla a los Triceratops y marca más goles que los veloces Raptors.</p>
+        <button class="start-button" id="startButton">¡A JUGAR! <span>→</span></button>
+        <p class="card-controls">MOVER <b>W A S D</b> <i>·</i> PATEAR <b>ESPACIO</b></p>
+      </div>
+      <div class="end-card hidden" id="endCard">
+        <div class="end-trophy" id="endEmoji">🏆</div>
+        <p class="card-kicker">FIN DEL PARTIDO</p><h2 id="endTitle">¡Victoria jurásica!</h2><p class="card-copy" id="endCopy">El estadio retumba con tu rugido.</p>
+        <div class="final-score" id="finalScore">0 : 0</div>
+        <button class="start-button" id="rematchButton">REVANCHA <span>↻</span></button>
+      </div>
+    </div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
